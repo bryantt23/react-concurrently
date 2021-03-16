@@ -1,21 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 const axios = require('axios');
 
-function AddEmployee() {
+function EditEmployee() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const { id } = useParams();
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const res = await fetch(`/employees/${id}`);
+      const data = await res.json();
+      console.log(data);
+      setFirstName(data.first_name);
+      setLastName(data.last_name);
+      setEmail(data.email);
+    }
+    fetchData();
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
     const data = {
-      id: new Date().getUTCMilliseconds(),
       first_name: firstName,
       last_name: lastName,
       email
     };
     axios
-      .post('/employees', {
+      .put(`/employees/${id}`, {
         ...data
       })
       .then(resp => {
@@ -25,12 +39,11 @@ function AddEmployee() {
       .catch(error => {
         console.log(error);
       });
-    // console.log(response);
   };
 
   return (
     <div>
-      <h1>Create new</h1>
+      <h1>Edit Employee</h1>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
@@ -68,4 +81,4 @@ function AddEmployee() {
   );
 }
 
-export default AddEmployee;
+export default EditEmployee;

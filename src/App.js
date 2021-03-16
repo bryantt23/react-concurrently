@@ -10,6 +10,7 @@ import {
 import Employees from './components/Employees';
 import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path='/add-employee'>
           <AddEmployee />
+        </Route>
+        <Route path='/edit-employee/:id'>
+          <EditEmployee />
         </Route>
         <Route path='/'>
           <div>Home</div>
