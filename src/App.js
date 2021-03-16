@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Employees from './components/Employees';
 import Employee from './components/Employee';
+import AddEmployee from './components/AddEmployee';
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
       <Switch>
         <Route path='/employees/:id' component={Employee} />
         <Route path='/employees'>
-          <Employees />{' '}
+          <Employees />
+        </Route>
+        <Route path='/add-employee'>
+          <AddEmployee />
         </Route>
         <Route path='/'>
           <div>Home</div>
