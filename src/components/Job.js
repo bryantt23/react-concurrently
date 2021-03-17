@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 function Job() {
   const history = useHistory();
-  const [job, setJob] = useState([]);
+  const [job, setJob] = useState(null);
+  const [lowestBid, setLowestBid] = useState(null);
   let { id } = useParams();
 
   console.log(id);
@@ -22,17 +23,42 @@ function Job() {
       });
       console.log(targetJob);
       setJob(targetJob);
-      // findLowestBidAmount()
+      setLowestBid(findLowestBid());
+      console.log(lowestBid);
     }
     fetchData();
   }, []);
 
-  // findLowestBidAmount = () => {};
+  function findLowestBid() {
+    if (!job) return;
+    let lowestBidAmount = Number.POSITIVE_INFINITY;
+    let lowestBid = null;
+    for (let b of job.bids) {
+      let amount = b.amount;
+      if (amount < lowestBidAmount) {
+        lowestBidAmount = amount;
+        lowestBid = b;
+      }
+    }
+    return lowestBid;
+  }
 
   return (
     <div>
       <h1>Job</h1>
-      {job && job ? JSON.stringify(job) : `Job with id of ${id} is not found`}
+      {job && job ? (
+        <div>
+          <p>Job Description: {job.description}</p>
+          <p>Last Bid Day: {job.last_bid_day}</p>
+        </div>
+      ) : (
+        `Job with id of ${id} is not found`
+      )}
+      {lowestBid && lowestBid ? (
+        <div>{`The lowest bid amount is: ${lowestBid.amount}`}</div>
+      ) : (
+        'There are no bids'
+      )}
     </div>
   );
 }

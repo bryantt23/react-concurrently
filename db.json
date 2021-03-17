@@ -22,10 +22,7 @@
       "id": 3,
       "description": "Ecommerce site",
       "last_bid_day": "05/30/2021",
-      "bids": [
-        { "buyer": "John", "amount": 50000 },
-        { "buyer": "Jane", "amount": 100000 }
-      ]
+      "bids": []
     }
   ]
 }
