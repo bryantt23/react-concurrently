@@ -10,9 +10,9 @@ function AddJob() {
     e.preventDefault();
     const data = {
       id: new Date().getUTCMilliseconds(),
-      first_name: description,
-      last_name: maxBudget,
-      lastBidDay,
+      description: description,
+      max_budget: maxBudget,
+      last_bid_day: lastBidDay,
       bids: []
     };
     axios

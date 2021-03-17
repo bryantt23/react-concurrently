@@ -38,13 +38,6 @@
       "last_bid_day": "05/30/2021",
       "max_budget": 10000,
       "bids": []
-    },
-    {
-      "id": 851,
-      "first_name": "test",
-      "last_name": "100000",
-      "lastBidDay": "05/11/2025",
-      "bids": []
     }
   ]
 }
