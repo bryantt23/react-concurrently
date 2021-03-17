@@ -1,22 +1,22 @@
 import { useState } from 'react';
 const axios = require('axios');
 
-function AddEmployee() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+function AddJob() {
+  const [description, setDescription] = useState('');
+  const [maxBudget, setMaxBudget] = useState('');
+  const [lastBidDay, setLastBidDay] = useState('');
 
-  //TODO move into service, add validation
   const handleSubmit = e => {
     e.preventDefault();
     const data = {
       id: new Date().getUTCMilliseconds(),
-      first_name: firstName,
-      last_name: lastName,
-      email
+      first_name: description,
+      last_name: maxBudget,
+      lastBidDay,
+      bids: []
     };
     axios
-      .post('/employees', {
+      .post('/jobs', {
         ...data
       })
       .then(resp => {
@@ -31,42 +31,45 @@ function AddEmployee() {
 
   return (
     <div>
-      <h1>Create new job</h1>
+      <h1>Create new</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          First Name:
+          Description:
           <input
             type='text'
-            value={firstName}
+            value={description}
             onChange={e => {
-              setFirstName(e.target.value);
+              setDescription(e.target.value);
             }}
           />
         </label>
+        <br />
         <label>
-          Last Name:
+          Max Budget:
           <input
             type='text'
-            value={lastName}
+            value={maxBudget}
             onChange={e => {
-              setLastName(e.target.value);
+              setMaxBudget(e.target.value);
             }}
           />
         </label>
+        <br />
         <label>
-          Email:
+          lastBidDay:
           <input
             type='text'
-            value={email}
+            value={lastBidDay}
             onChange={e => {
-              setEmail(e.target.value);
+              setLastBidDay(e.target.value);
             }}
           />
         </label>
+        <br />
         <input type='submit' value='Submit' />
       </form>
     </div>
   );
 }
 
-export default AddEmployee;
+export default AddJob;

@@ -4,24 +4,46 @@
       "id": 1,
       "description": "Wordpress website",
       "last_bid_day": "03/17/2021",
+      "max_budget": 25000,
       "bids": [
-        { "buyer": "John", "amount": 5000 },
-        { "buyer": "Jane", "amount": 10000 }
+        {
+          "buyer": "John",
+          "amount": 5000
+        },
+        {
+          "buyer": "Jane",
+          "amount": 10000
+        }
       ]
     },
     {
       "id": 2,
       "description": "Social network website",
       "last_bid_day": "04/17/2021",
+      "max_budget": 10000000,
       "bids": [
-        { "buyer": "John", "amount": 500000 },
-        { "buyer": "Jane", "amount": 750000 }
+        {
+          "buyer": "John",
+          "amount": 500000
+        },
+        {
+          "buyer": "Jane",
+          "amount": 750000
+        }
       ]
     },
     {
       "id": 3,
       "description": "Ecommerce site",
       "last_bid_day": "05/30/2021",
+      "max_budget": 10000,
+      "bids": []
+    },
+    {
+      "id": 851,
+      "first_name": "test",
+      "last_name": "100000",
+      "lastBidDay": "05/11/2025",
       "bids": []
     }
   ]
