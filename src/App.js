@@ -11,6 +11,7 @@ import Employees from './components/Employees';
 import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployee';
+import Jobs from './components/Jobs';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <EditEmployee />
         </Route>
         <Route path='/'>
-          <div>Home</div>
+          <Jobs />
         </Route>
       </Switch>
     </Router>
