@@ -38,6 +38,22 @@
       "last_bid_day": "05/30/2021",
       "max_budget": 10000,
       "bids": []
+    },
+    {
+      "id": 304,
+      "description": "test",
+      "max_budget": "50000",
+      "last_bid_day": "03/31/2021",
+      "bids": [
+        {
+          "buyer": "b",
+          "amount": "333"
+        },
+        {
+          "buyer": "gggggggggggg",
+          "amount": "5555"
+        }
+      ]
     }
   ]
 }

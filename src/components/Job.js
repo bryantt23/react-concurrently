@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import AddBid from './AddBid';
 
 function Job() {
   const history = useHistory();
@@ -59,6 +60,7 @@ function Job() {
       ) : (
         'There are no bids'
       )}
+      <AddBid id={id} jobInfo={job} />
     </div>
   );
 }
