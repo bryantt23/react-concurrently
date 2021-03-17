@@ -6,6 +6,7 @@ function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
+    //TODO create service for database calls
     async function fetchData() {
       // You can await here
       const res = await fetch('/jobs');

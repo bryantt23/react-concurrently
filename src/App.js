@@ -12,6 +12,7 @@ import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployee';
 import Jobs from './components/Jobs';
+import Job from './components/Job';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/edit-employee/:id'>
           <EditEmployee />
         </Route>
+        <Route path='/jobs/:id' component={Job} />
         <Route path='/'>
           <Jobs />
         </Route>
