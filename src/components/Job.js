@@ -6,12 +6,15 @@ import AddBid from './AddBid';
 function Job() {
   const history = useHistory();
   const [job, setJob] = useState(null);
+  const [bids, setBids] = useState([]);
+
   const [lowestBid, setLowestBid] = useState(null);
   let { id } = useParams();
 
   console.log(id);
 
   useEffect(() => {
+    debugger;
     //TODO create service for database calls
     async function fetchData() {
       // You can await here
@@ -24,13 +27,20 @@ function Job() {
       });
       console.log(targetJob);
       setJob(targetJob);
-      setLowestBid(findLowestBid());
-      console.log(lowestBid);
+      // setLowestBid(findLowestBid());
+      // console.log(lowestBid);
     }
     fetchData();
-  }, []);
+  }, [bids]);
+
+  useEffect(() => {
+    console.log('in new useEffect ');
+    setLowestBid(findLowestBid());
+    console.log(lowestBid);
+  }, [job]);
 
   function findLowestBid() {
+    debugger;
     if (!job) return;
     let lowestBidAmount = Number.POSITIVE_INFINITY;
     let lowestBid = null;
@@ -41,13 +51,14 @@ function Job() {
         lowestBid = b;
       }
     }
+    console.log(lowestBid);
     return lowestBid;
   }
 
   return (
     <div>
       <h1>Job</h1>
-      {job && job ? (
+      {job ? (
         <div>
           <p>Job Description: {job.description}</p>
           <p>Last Bid Day: {job.last_bid_day}</p>
@@ -55,12 +66,12 @@ function Job() {
       ) : (
         `Job with id of ${id} is not found`
       )}
-      {lowestBid && lowestBid ? (
+      {lowestBid ? (
         <div>{`The lowest bid amount is: ${lowestBid.amount}`}</div>
       ) : (
         'There are no bids'
       )}
-      <AddBid id={id} jobInfo={job} />
+      <AddBid id={id} jobInfo={job} setBids={setBids} />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 const axios = require('axios');
 
-function AddBid({ id, jobInfo }) {
-  console.log(id, jobInfo);
+function AddBid({ id, jobInfo, setBids }) {
   const [buyer, setBuyer] = useState('');
   const [amount, setAmount] = useState('');
 
@@ -11,6 +10,7 @@ function AddBid({ id, jobInfo }) {
     console.log(jobInfo.bids);
     let bidsUpdated = [...jobInfo.bids, { buyer, amount }];
     console.log(bidsUpdated);
+    setBids([...bidsUpdated]);
     const data = { ...jobInfo, bids: [...bidsUpdated] };
     console.log(data);
     axios

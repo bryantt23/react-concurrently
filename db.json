@@ -13,6 +13,10 @@
         {
           "buyer": "Jane",
           "amount": 10000
+        },
+        {
+          "buyer": "b",
+          "amount": "1"
         }
       ]
     },
@@ -54,6 +58,13 @@
           "amount": "5555"
         }
       ]
+    },
+    {
+      "id": 837,
+      "description": "new job",
+      "max_budget": "55555",
+      "last_bid_day": "04/01/2021",
+      "bids": []
     }
   ]
 }
